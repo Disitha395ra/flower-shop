@@ -4,6 +4,7 @@ import React from 'react';
 export default function Login(){
 
     const [text, setText] = React.useState("");
+    const [password, setpassword] = React.useState("");
 
     return (
       <PaperProvider>
@@ -11,9 +12,17 @@ export default function Login(){
           <View style={styles.container}>
             <Text style={styles.logintext}>Login Here</Text>
             <TextInput
-              label="Email"
+              label="Username"
               value={text}
               onChangeText={(text) => setText(text)}
+              atyle={styles.username}
+            />
+            <TextInput
+              label="password"
+              value={text}
+              onChangeText={(text) => setText(text)}
+              style={styles.password}
+              secureTextEntry={true}
             />
           </View>
         </ScrollView>
