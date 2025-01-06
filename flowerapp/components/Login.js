@@ -15,12 +15,12 @@ export default function Login(){
               label="Username"
               value={text}
               onChangeText={(text) => setText(text)}
-              atyle={styles.username}
+              style={styles.username}
             />
             <TextInput
               label="password"
-              value={text}
-              onChangeText={(text) => setText(text)}
+              value={password}
+              onChangeText={(text) => setpassword(text)}
               style={styles.password}
               secureTextEntry={true}
             />
@@ -36,12 +36,26 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 900,
   },
-  logintext:{
+  logintext: {
     fontSize: 30,
     color: "white",
     position: "absolute",
     top: 300,
     marginLeft: 75,
     textAlign: "center",
+  },
+  username:{
+    position: "absolute",
+    top: 400,
+    marginLeft: 65,
+    width: 300,
+    height: 50,
+  },
+  password:{
+    position: "absolute",
+    top: 500,
+    marginLeft: 65,
+    width: 300,
+    height: 50,
   }
 });
