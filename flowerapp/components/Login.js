@@ -1,15 +1,24 @@
 import {StyleSheet,ScrollView,View} from 'react-native';
 import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
+import React from 'react';
 export default function Login(){
-    return(
-        <PaperProvider>
-            <ScrollView>
-                <View style={styles.container}>
-                    <Text style={styles.logintext}>Login Here</Text>
-                </View>
-            </ScrollView>
-        </PaperProvider>
-    )
+
+    const [text, setText] = React.useState("");
+
+    return (
+      <PaperProvider>
+        <ScrollView>
+          <View style={styles.container}>
+            <Text style={styles.logintext}>Login Here</Text>
+            <TextInput
+              label="Email"
+              value={text}
+              onChangeText={(text) => setText(text)}
+            />
+          </View>
+        </ScrollView>
+      </PaperProvider>
+    );
 }
 
 const styles = StyleSheet.create({
