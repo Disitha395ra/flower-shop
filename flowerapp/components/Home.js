@@ -11,20 +11,20 @@ export default function Home(){
             />
             <Text style={styles.hometext}>Welcome To Flowers</Text>
             <Button
-              icon="camera"
+              icon="account"
               mode="contained"
               onPress={() => console.log("Pressed")}
-              style={styles.homebutton}
+              style={styles.homebuttonlogin}
             >
-              Press me
+              Login Here
             </Button>
             <Button
-              icon="camera"
+              icon="account-plus"
               mode="contained"
               onPress={() => console.log("Pressed")}
-              style={styles.homebutton}
+              style={styles.homebuttonsginip}
             >
-              Press me
+              Sign Up Here
             </Button>
           </View>
         </ScrollView>
@@ -45,12 +45,19 @@ const styles = StyleSheet.create({
     marginLeft: 75,
     textAlign: "center",
   },
-  homebutton:{
+  homebuttonlogin: {
     position: "absolute",
     top: 400,
     marginLeft: 65,
     width: 300,
     height: 50,
-    
-  }
+    backgroundColor: "#32cd32",
+  },
+  homebuttonsginip: {
+    position: "absolute",
+    top: 500,
+    marginLeft: 65,
+    width: 300,
+    height: 50,
+  },
 });
