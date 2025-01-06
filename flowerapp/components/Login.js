@@ -1,6 +1,7 @@
 import {StyleSheet,ScrollView,View} from 'react-native';
 import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
 import React from 'react';
+import { TouchableOpacity } from "react-native";
 export default function Login(){
 
     const [text, setText] = React.useState("");
@@ -25,13 +26,21 @@ export default function Login(){
               secureTextEntry={true}
             />
             <Button
-              icon="camera"
+              icon="account-reactivate"
               mode="contained"
               onPress={() => console.log("Pressed")}
               style={styles.loginbutton}
             >
-              Press me
+              Login Here
             </Button>
+            <TouchableOpacity
+              onPress={() => console.log("Pressed")}
+              style={styles.signupLink}
+            >
+              <Text style={styles.signupText}>
+                Don't have an account? Sign up here
+              </Text>
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </PaperProvider>
@@ -66,11 +75,18 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
   },
-  loginbutton:{
+  loginbutton: {
     position: "absolute",
     top: 500,
     marginLeft: 65,
     width: 300,
     height: 50,
-  }
+  },
+  signupText: {
+    color: "white",
+    fontSize: 14,
+    textDecorationLine: "underline",
+    marginTop: 550,
+    marginLeft: 95,
+  },
 });
