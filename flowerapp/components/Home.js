@@ -1,12 +1,17 @@
-import {StyleSheet,View} from 'react-native';
+import {StyleSheet,View,ScrollView} from 'react-native';
+import {Paperprovider} from 'react-native-paper';
 export default function Home(){
-    return(
-        <View>
+    return (
+      <Paperprovider>
+        <ScrollView>
+          <View>
             <Text>Home</Text>
-        </View>
-    )
+          </View>
+        </ScrollView>
+      </Paperprovider>
+    );
 }
 
 const styles = StyleSheet.create({
-    
+
 })
