@@ -24,6 +24,14 @@ export default function Login(){
               style={styles.password}
               secureTextEntry={true}
             />
+            <Button
+              icon="camera"
+              mode="contained"
+              onPress={() => console.log("Pressed")}
+              style={styles.loginbutton}
+            >
+              Press me
+            </Button>
           </View>
         </ScrollView>
       </PaperProvider>
@@ -40,18 +48,25 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "white",
     position: "absolute",
-    top: 300,
+    top: 200,
     marginLeft: 75,
     textAlign: "center",
   },
-  username:{
+  username: {
+    position: "absolute",
+    top: 300,
+    marginLeft: 65,
+    width: 300,
+    height: 50,
+  },
+  password: {
     position: "absolute",
     top: 400,
     marginLeft: 65,
     width: 300,
     height: 50,
   },
-  password:{
+  loginbutton:{
     position: "absolute",
     top: 500,
     marginLeft: 65,
