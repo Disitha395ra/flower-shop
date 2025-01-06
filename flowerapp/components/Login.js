@@ -4,7 +4,7 @@ import React from 'react';
 import { TouchableOpacity } from "react-native";
 export default function Login(){
 
-    const [text, setText] = React.useState("");
+    const [username, setusername] = React.useState("");
     const [password, setpassword] = React.useState("");
 
     return (
@@ -14,8 +14,8 @@ export default function Login(){
             <Text style={styles.logintext}>Login Here</Text>
             <TextInput
               label="Username"
-              value={text}
-              onChangeText={(text) => setText(text)}
+              value={username}
+              onChangeText={(text) => setusername(text)}
               style={styles.username}
             />
             <TextInput
