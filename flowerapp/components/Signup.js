@@ -1,65 +1,71 @@
-import{StyleSheet,View,ScrollView} from 'react-native';
-import {PaperProvider, Text, Button, TextInput} from 'react-native-paper';
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
-export default function Signup(){
+import { StyleSheet, View, ScrollView } from "react-native";
+import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
+import React from "react";
+import { TouchableOpacity } from "react-native";
 
-    const [susername, setsusername] = React.useState("");
-    const [spassword, setspassword] = React.useState("");
-    const [confirmpassword, setconfirmpassword] = React.useState("");
-    const [email, setemail] = React.useState("");
+export default function Signup() {
+  const [susername, setsusername] = React.useState("");
+  const [spassword, setspassword] = React.useState("");
+  const [confirmpassword, setconfirmpassword] = React.useState("");
+  const [email, setemail] = React.useState("");
 
-    return (
-      <PaperProvider>
-        <ScrollView>
-          <View style={styles.container}>
-            <Text style={styles.sgintext}>Sign-Up Here</Text>
-            <TextInput
-              label="Username"
-              value={susername}
-              onChangeText={(text) => setsusername(text)}
-              style={styles.username}
-            />
-            <TextInput
-              label="User Email"
-              value={email}
-              onChangeText={(text) => setemail(text)}
-              style={styles.email}
-            />
-            <TextInput
-              label="password"
-              value={spassword}
-              onChangeText={(text) => setspassword(text)}
-              style={styles.password}
-              secureTextEntry={true}
-            />
-            <TextInput
-              label="Confirm password"
-              value={confirmpassword}
-              onChangeText={(text) => setconfirmpassword(text)}
-              style={styles.confirmpassword}
-              secureTextEntry={true}
-            />
-            <Button
-              icon="account-plus"
-              mode="contained"
-              onPress={() => console.log("Pressed")}
-              style={styles.sginupbutton}
-            >
-              Sign-Up Here
-            </Button>
-            <TouchableOpacity
-              onPress={() => console.log("Pressed")}
-              style={styles.signupLink}
-            >
-              <Text style={styles.loginText}>
-                Already have an account? Login here
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </PaperProvider>
-    );
+  return (
+    <PaperProvider>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.sgintext}>Sign-Up Here</Text>
+
+          <TextInput
+            label="Username"
+            value={susername}
+            onChangeText={(text) => setsusername(text)}
+            style={styles.username}
+          />
+
+          <TextInput
+            label="User Email"
+            value={email}
+            onChangeText={(text) => setemail(text)}
+            style={styles.email}
+          />
+
+          <TextInput
+            label="Password"
+            value={spassword}
+            onChangeText={(text) => setspassword(text)}
+            style={styles.password}
+            secureTextEntry={true}
+          />
+
+          <TextInput
+            label="Confirm Password"
+            value={confirmpassword}
+            onChangeText={(text) => setconfirmpassword(text)}
+            style={styles.confirmpassword}
+            secureTextEntry={true}
+          />
+
+          <Button
+            icon="account-plus"
+            mode="contained"
+            onPress={() => console.log("Pressed")}
+            style={styles.sginupbutton}
+          >
+            Sign-Up Here
+          </Button>
+
+          <TouchableOpacity
+            onPress={() => console.log("Pressed")}
+            style={styles.signupLink}
+          >
+            <Text style={styles.loginText}>
+              Already have an account? Login here
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </PaperProvider>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -98,11 +104,11 @@ const styles = StyleSheet.create({
     height: 50,
   },
   loginText: {
-    color: "white",
+    color: "black",
     fontSize: 14,
     textDecorationLine: "underline",
-    marginTop: 583,
-    marginLeft: 95,
+    marginTop: 0,
+    marginLeft: 35,
   },
   confirmpassword: {
     position: "absolute",
@@ -111,11 +117,16 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
   },
-  email:{
+  email: {
     position: "absolute",
     top: 270,
     marginLeft: 65,
     width: 300,
     height: 50,
-  }
+  },
+  signupLink: {
+    position: "absolute",
+    top: 600,
+    marginLeft: 65,
+  },
 });
