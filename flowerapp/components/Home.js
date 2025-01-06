@@ -1,11 +1,13 @@
-import {StyleSheet,View,ScrollView} from 'react-native';
+import {StyleSheet,View,ScrollView,Image} from 'react-native';
 import {Paperprovider} from 'react-native-paper';
 export default function Home(){
     return (
       <Paperprovider>
         <ScrollView>
           <View>
-            <Text>Home</Text>
+            <Image
+                source={require('../assets/Home.jpg')}
+            />
           </View>
         </ScrollView>
       </Paperprovider>
