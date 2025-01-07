@@ -14,7 +14,16 @@ import {flowers} from '../data/FlowerDB'
 import React from "react";
 
 export default function Item(){
-const [text, setText] = React.useState("");
+const [count, setCount] = React.useState(0);
+
+const handleplus = () => {
+    
+}
+
+const handleminus = () => {
+
+}
+
     return (
       <PaperProvider>
         <ScrollView>
@@ -30,12 +39,12 @@ const [text, setText] = React.useState("");
                   icon="plus"
                   iconColor={MD3Colors.error50}
                   size={20}
-                  onPress={() => console.log("Pressed")}
+                  onPress={handleplus}
                 />
                 <TextInput
-                  label="Email"
-                  value={text}
-                  onChangeText={(text) => setText(text)}
+                  label="Count"
+                  value={count}
+                  onChangeText={(text) => setCount(text)}
                   editable={false}
                   style={styles.textfield}
                 />
@@ -43,7 +52,7 @@ const [text, setText] = React.useState("");
                   icon="minus"
                   iconColor={MD3Colors.error50}
                   size={20}
-                  onPress={() => console.log("Pressed")}
+                  onPress={handleminus}
                 />
                 <Button
                   icon="cart-plus"
@@ -77,5 +86,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+    textDecorationLine: "none",
   },
 });
