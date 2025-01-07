@@ -17,11 +17,11 @@ export default function Item(){
 const [count, setCount] = React.useState(0);
 
 const handleplus = () => {
-    
+    //setCount(count + 1);
 }
 
 const handleminus = () => {
-
+    
 }
 
     return (
@@ -39,7 +39,7 @@ const handleminus = () => {
                   icon="plus"
                   iconColor={MD3Colors.error50}
                   size={20}
-                  onPress={handleplus}
+                  onPress={handleplus(flower.id)}
                 />
                 <TextInput
                   label="Count"
@@ -47,12 +47,13 @@ const handleminus = () => {
                   onChangeText={(text) => setCount(text)}
                   editable={false}
                   style={styles.textfield}
+                  
                 />
                 <IconButton
                   icon="minus"
                   iconColor={MD3Colors.error50}
                   size={20}
-                  onPress={handleminus}
+                  onPress={handleminus(flower.id)}
                 />
                 <Button
                   icon="cart-plus"
