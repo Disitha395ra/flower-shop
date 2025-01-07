@@ -12,11 +12,17 @@ export default function ButtonPannel({route}){
 
     const {username,password} = route.params;
 
-    return(
-        <View>
-            <Text>ButtonPannel</Text>
-        </View>
-    )
+    return (
+      <Tab.Navigator>
+        <Tab.Screen name="Item" component={Item} />
+        <Tab.Screen name="Cart" component={Cart} />
+        <Tab.Screen
+          name="Profile"
+          component={Profile}
+          initialParams={{ username , password}}
+        />
+      </Tab.Navigator>
+    );
 }
 
 const styles = StyleSheet.create({
