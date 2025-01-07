@@ -39,5 +39,9 @@ const styles = StyleSheet.create({
   cardcomponent: {
     margin: 10,
     padding: 10,
+  },
+  cardphoto:{
+    position: 'relative',
+    height: 500,
   }
 });
