@@ -1,6 +1,6 @@
 import {StyleSheet,View,ScrollView,Image} from 'react-native';
 import { PaperProvider, Text,Button } from "react-native-paper";
-export default function Home(){
+export default function Home({navigation}){
     return (
       <PaperProvider>
         <ScrollView>
@@ -13,7 +13,7 @@ export default function Home(){
             <Button
               icon="account"
               mode="contained"
-              onPress={() => console.log("Pressed")}
+              onPress={() => navigation.navigate("Login")}
               style={styles.homebuttonlogin}
             >
               Login Here
@@ -21,7 +21,7 @@ export default function Home(){
             <Button
               icon="account-plus"
               mode="contained"
-              onPress={() => console.log("Pressed")}
+              onPress={() => navigation.navigate("Signup")}
               style={styles.homebuttonsginip}
             >
               Sign Up Here
