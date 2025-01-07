@@ -13,12 +13,12 @@ export default function Item(){
       <PaperProvider>
         <ScrollView>
             {flowers.map((flower, id) => (
-               <Card key={flower.id}>
+               <Card key={flower.id} style={styles.cardcomponent}>
                  <Card.Content>
                    <Text variant="titleLarge">Name - {flower.name}</Text>
                    <Text variant="bodyMedium">Price - {flower.price}</Text>
                  </Card.Content>
-                 <Card.Cover source={require("../data/${flower.img}")} />
+                 <Card.Cover source={flower.img} />
                  <Card.Actions>
                    <Button
                      icon="cart-plus"
@@ -36,5 +36,8 @@ export default function Item(){
 }
 
 const styles = StyleSheet.create({
-    
-})
+  cardcomponent:{
+    margin:10,
+    padding:10
+  }
+});
