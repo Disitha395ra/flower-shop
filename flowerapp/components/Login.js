@@ -2,10 +2,22 @@ import {StyleSheet,ScrollView,View} from 'react-native';
 import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
 import React from 'react';
 import { TouchableOpacity } from "react-native";
-export default function Login(){
+export default function Login({route, navigation}){
 
-    const [username, setusername] = React.useState("");
-    const [password, setpassword] = React.useState("");
+    const {username, password} = route.params;
+    const [inputusername, setusername] = React.useState("");
+    const [inputpassword, setpassword] = React.useState("");
+
+    const handlelogin=()=>{
+      if(inputusername=="" || inputpassword==""){
+        alert("Please fill all the fields")
+      }
+      if(inputusername !==username ||  inputpassword!== password){
+        alert("Invalid Username and Password")
+      }
+      navigation.navigate("Dashboard",{username,password});
+    }
+
 
     return (
       <PaperProvider>
@@ -14,13 +26,13 @@ export default function Login(){
             <Text style={styles.logintext}>Login Here</Text>
             <TextInput
               label="Username"
-              value={username}
+              value={inputusername}
               onChangeText={(text) => setusername(text)}
               style={styles.username}
             />
             <TextInput
               label="password"
-              value={password}
+              value={inputpassword}
               onChangeText={(text) => setpassword(text)}
               style={styles.password}
               secureTextEntry={true}
@@ -28,13 +40,13 @@ export default function Login(){
             <Button
               icon="account-reactivate"
               mode="contained"
-              onPress={() => console.log("Pressed")}
+              onPress={handlelogin}
               style={styles.loginbutton}
             >
               Login Here
             </Button>
             <TouchableOpacity
-              onPress={() => console.log("Pressed")}
+              onPress={() => navigation.navigate("Signup")}
               style={styles.signupLink}
             >
               <Text style={styles.signupText}>
