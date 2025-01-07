@@ -17,7 +17,7 @@ export default function Login({route, navigation}){
         alert("Invalid Username and Password")
         return;
       }
-      if (inputusername.trim() === "user" && inputpassword.trim() === "user") {
+      if (inputusername === "user" && inputpassword === "user") {
         navigation.navigate("ButtonPannel", { inputusername, inputpassword });
       }else if (inputusername.trim() === susername.trim() || inputpassword.trim() === spassword.trim()){
         navigation.navigate("ButtonPannel", { inputusername, inputpassword });
@@ -52,14 +52,7 @@ export default function Login({route, navigation}){
             >
               Login Here
             </Button>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Signup")}
-              style={styles.signupLink}
-            >
-              <Text style={styles.signupText}>
-                Don't have an account? Sign up here
-              </Text>
-            </TouchableOpacity>
+             
           </View>
         </ScrollView>
       </PaperProvider>

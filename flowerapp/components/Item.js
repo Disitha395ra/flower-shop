@@ -1,13 +1,13 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet, ScrollView } from "react-native";
 import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
 export default function Item(){
-    return(
-        <PaperProvide>
-            <ScrollView>
-                <Text>Hiii</Text>
-            </ScrollView>
-        </PaperProvide>
-    )
+    return (
+      <PaperProvider>
+        <ScrollView>
+          <Text>Hiii</Text>
+        </ScrollView>
+      </PaperProvider>
+    );
 }
 
 const styles = StyleSheet.create({

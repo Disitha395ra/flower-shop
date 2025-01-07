@@ -1,12 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
 export default function Cart() {
   return (
-    <PaperProvide>
+    <PaperProvider>
       <ScrollView>
         <Text>Hiii</Text>
       </ScrollView>
-    </PaperProvide>
+    </PaperProvider>
   );
 }
 
