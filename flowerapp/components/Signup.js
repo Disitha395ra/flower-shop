@@ -16,7 +16,7 @@ export default function Signup({navigation}) {
     if (spassword !== confirmpassword){
       alert("passwords do not match");
     } 
-    navigation.navigate("Login");
+    navigation.navigate("Login",{username:susername,password:spassword});
   }
 
 
