@@ -1,6 +1,7 @@
 import { StyleSheet, ScrollView } from "react-native";
 import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
-export default function Profile() {
+export default function Profile({ route }) {
+  const { inputusername, inputpassword } = route.params;
   return (
     <PaperProvider>
       <ScrollView>

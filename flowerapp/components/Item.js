@@ -1,10 +1,35 @@
 import { StyleSheet, ScrollView } from "react-native";
-import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
+import {
+  PaperProvider,
+  Text,
+  Button,
+  TextInput,
+  Avatar,
+  Card,
+} from "react-native-paper";
+import {flowers} from '../data/FlowerDB'
 export default function Item(){
     return (
       <PaperProvider>
         <ScrollView>
-          <Text>Hiii</Text>
+            {flowers.map((flower, id) => (
+               <Card key={flower.id}>
+                 <Card.Content>
+                   <Text variant="titleLarge">Name - {flower.name}</Text>
+                   <Text variant="bodyMedium">Price - {flower.price}</Text>
+                 </Card.Content>
+                 <Card.Cover source={require("../data/${flower.img}")} />
+                 <Card.Actions>
+                   <Button
+                     icon="cart-plus"
+                     mode="contained"
+                     onPress={() => console.log("Pressed")}
+                   >
+                     Add to Cart
+                   </Button>
+                 </Card.Actions>
+               </Card>
+            ))}
         </ScrollView>
       </PaperProvider>
     );
