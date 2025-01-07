@@ -4,18 +4,25 @@ import React from 'react';
 import { TouchableOpacity } from "react-native";
 export default function Login({route, navigation}){
 
-    const {username, password} = route.params;
-    const [inputusername, setusername] = React.useState("");
-    const [inputpassword, setpassword] = React.useState("");
+    const {susername="", spassword=""} = route.params || {};
+    const [inputusername, setusername] = React.useState(susername);
+    const [inputpassword, setpassword] = React.useState(spassword);
 
     const handlelogin=()=>{
       if(inputusername=="" || inputpassword==""){
         alert("Please fill all the fields")
+        return;
       }
-      if(inputusername !==username ||  inputpassword!== password){
+      if(inputusername.trim() !==susername.trim() ||  inputpassword.trim()!== spassword.trim()){
         alert("Invalid Username and Password")
+        return;
       }
-      navigation.navigate("ButtonPannel", { username, password });
+      if (inputusername.trim() === "user" && inputpassword.trim() === "user") {
+        navigation.navigate("ButtonPannel", { inputusername, inputpassword });
+      }else if (inputusername.trim() === susername.trim() || inputpassword.trim() === spassword.trim()){
+        navigation.navigate("ButtonPannel", { inputusername, inputpassword });
+      }
+        
     }
 
 

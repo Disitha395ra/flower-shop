@@ -10,24 +10,24 @@ const Tab = createBottomTabNavigator();
 
 export default function ButtonPannel({route}){
 
-    const {username,password} = route.params;
+    const { inputusername, inputpassword } = route.params;
 
     return (
       <Tab.Navigator
-        screenOptions={({route}) => ({
-            tabBarIcon: ({focused, color, size}) => {
-                let iconName;
-                if (route.name === "Item") {
-                    iconName = focused ? "home" : "home-outline";
-                } else if (route.name === "Cart") {
-                    iconName = focused ? "cart" : "cart-outline";
-                } else if (route.name === "Profile") {
-                    iconName = focused ? "account" : "account-outline";
-                }
-                return <Icon name={iconName} size={size} color={color} />;
-            },
-            tabBarActiveTintColor: "tomato",
-            tabBarInactiveTintColor: "gray",
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            if (route.name === "Item") {
+              iconName = focused ? "home" : "home-outline";
+            } else if (route.name === "Cart") {
+              iconName = focused ? "cart" : "cart-outline";
+            } else if (route.name === "Profile") {
+              iconName = focused ? "account" : "account-outline";
+            }
+            return <Icon name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: "tomato",
+          tabBarInactiveTintColor: "gray",
         })}
       >
         <Tab.Screen name="Item" component={Item} />
@@ -35,7 +35,7 @@ export default function ButtonPannel({route}){
         <Tab.Screen
           name="Profile"
           component={Profile}
-          initialParams={{ username , password}}
+          initialParams={{ inputusername, inputpassword }}
         />
       </Tab.Navigator>
     );

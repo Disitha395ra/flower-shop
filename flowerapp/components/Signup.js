@@ -18,7 +18,7 @@ export default function Signup({navigation}) {
       alert("passwords do not match");
       return;
     } 
-    navigation.navigate("Login",{username:susername,password:spassword});
+    navigation.navigate("Login",{susername,spassword});
   }
 
 
