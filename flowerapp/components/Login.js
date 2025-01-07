@@ -5,8 +5,8 @@ import { TouchableOpacity } from "react-native";
 export default function Login({route, navigation}){
 
     const {susername="", spassword=""} = route.params || {};
-    const [inputusername, setusername] = React.useState(susername);
-    const [inputpassword, setpassword] = React.useState(spassword);
+    const [inputusername, setusername] = React.useState("");
+    const [inputpassword, setpassword] = React.useState("");
 
     const handlelogin=()=>{
       if(inputusername=="" || inputpassword==""){
@@ -17,9 +17,7 @@ export default function Login({route, navigation}){
         alert("Invalid Username and Password")
         return;
       }
-      if (inputusername === "user" && inputpassword === "user") {
-        navigation.navigate("ButtonPannel", { inputusername, inputpassword });
-      }else if (inputusername.trim() === susername.trim() || inputpassword.trim() === spassword.trim()){
+      if (inputusername.trim() === susername.trim() || inputpassword.trim() === spassword.trim()){
         navigation.navigate("ButtonPannel", { inputusername, inputpassword });
       }
         
