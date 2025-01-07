@@ -15,7 +15,7 @@ export default function Login({route, navigation}){
       if(inputusername !==username ||  inputpassword!== password){
         alert("Invalid Username and Password")
       }
-      navigation.navigate("Dashboard",{username,password});
+      navigation.navigate("ButtonPannel", { username, password });
     }
 
 
