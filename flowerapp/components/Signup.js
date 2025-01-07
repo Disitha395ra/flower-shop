@@ -3,11 +3,22 @@ import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
-export default function Signup() {
+export default function Signup({navigation}) {
   const [susername, setsusername] = React.useState("");
   const [spassword, setspassword] = React.useState("");
   const [confirmpassword, setconfirmpassword] = React.useState("");
   const [email, setemail] = React.useState("");
+
+  const handlesignup = () =>{
+    if(susername==="" || spassword==="" || email==="" || confirmpassword===""){
+      alert("please fill all the fields");
+    }
+    if (spassword !== confirmpassword){
+      alert("passwords do not match");
+    } 
+    navigation.navigate("Login");
+  }
+
 
   return (
     <PaperProvider>
@@ -48,14 +59,14 @@ export default function Signup() {
           <Button
             icon="account-plus"
             mode="contained"
-            onPress={() => console.log("Pressed")}
+            onPress={handlesignup}
             style={styles.sginupbutton}
           >
             Sign-Up Here
           </Button>
 
           <TouchableOpacity
-            onPress={() => console.log("Pressed")}
+            onPress={() => navigation.navigate("Login")}
             style={styles.signupLink}
           >
             <Text style={styles.loginText}>
