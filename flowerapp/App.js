@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import ButtonPannel from './components/ButtonPannel';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ export default function App() {
             <Stack.Screen name="Home" component={Home}/>
             <Stack.Screen name="Login" component={Login}/>
             <Stack.Screen name="Signup" component={Signup}/>
+            <Stack.Screen name="ButtonPannel" component={ButtonPannel}/>
           </Stack.Navigator>
         </NavigationContainer>
       </ScrollView>
