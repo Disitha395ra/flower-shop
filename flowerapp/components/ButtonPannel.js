@@ -13,7 +13,23 @@ export default function ButtonPannel({route}){
     const {username,password} = route.params;
 
     return (
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+            tabBarIcon: ({focused, color, size}) => {
+                let iconName;
+                if (route.name === "Item") {
+                    iconName = focused ? "home" : "home-outline";
+                } else if (route.name === "Cart") {
+                    iconName = focused ? "cart" : "cart-outline";
+                } else if (route.name === "Profile") {
+                    iconName = focused ? "account" : "account-outline";
+                }
+                return <Icon name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: "tomato",
+            tabBarInactiveTintColor: "gray",
+        })}
+      >
         <Tab.Screen name="Item" component={Item} />
         <Tab.Screen name="Cart" component={Cart} />
         <Tab.Screen
