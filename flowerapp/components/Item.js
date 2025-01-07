@@ -18,7 +18,7 @@ export default function Item(){
                    <Text variant="titleLarge">Name - {flower.name}</Text>
                    <Text variant="bodyMedium">Price - {flower.price}</Text>
                  </Card.Content>
-                 <Card.Cover source={flower.img} />
+                 <Card.Cover source={flower.img}  style={styles.cardphoto}/>
                  <Card.Actions>
                    <Button
                      icon="cart-plus"
@@ -36,8 +36,8 @@ export default function Item(){
 }
 
 const styles = StyleSheet.create({
-  cardcomponent:{
-    margin:10,
-    padding:10
+  cardcomponent: {
+    margin: 10,
+    padding: 10,
   }
 });
