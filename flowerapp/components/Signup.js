@@ -12,9 +12,11 @@ export default function Signup({navigation}) {
   const handlesignup = () =>{
     if(susername==="" || spassword==="" || email==="" || confirmpassword===""){
       alert("please fill all the fields");
+      return;
     }
     if (spassword !== confirmpassword){
       alert("passwords do not match");
+      return;
     } 
     navigation.navigate("Login",{username:susername,password:spassword});
   }

@@ -3,31 +3,33 @@ import { PaperProvider, Text,Button } from "react-native-paper";
 export default function Home({navigation}){
     return (
       <PaperProvider>
-        <ScrollView>
-          <View>
-            <Image
-              source={require("../assets/Home.jpg")}
-              style={styles.homebanner}
-            />
-            <Text style={styles.hometext}>Welcome To Flowers</Text>
-            <Button
-              icon="account"
-              mode="contained"
-              onPress={() => navigation.navigate("Login")}
-              style={styles.homebuttonlogin}
-            >
-              Login Here
-            </Button>
-            <Button
-              icon="account-plus"
-              mode="contained"
-              onPress={() => navigation.navigate("Signup")}
-              style={styles.homebuttonsginip}
-            >
-              Sign Up Here
-            </Button>
-          </View>
-        </ScrollView>
+        <View >
+          <ScrollView>
+            <View>
+              <Image
+                source={require("../assets/Home.jpg")}
+                style={styles.homebanner}
+              />
+              <Text style={styles.hometext}>Welcome To Flowers</Text>
+              <Button
+                icon="account"
+                mode="contained"
+                onPress={() => navigation.navigate("Login")}
+                style={styles.homebuttonlogin}
+              >
+                Login Here
+              </Button>
+              <Button
+                icon="account-plus"
+                mode="contained"
+                onPress={() => navigation.navigate("Signup")}
+                style={styles.homebuttonsginip}
+              >
+                Sign Up Here
+              </Button>
+            </View>
+          </ScrollView>
+        </View>
       </PaperProvider>
     );
 }

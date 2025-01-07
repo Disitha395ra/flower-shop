@@ -13,16 +13,14 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <PaperProvider>
-      <ScrollView>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={Home}/>
-            <Stack.Screen name="Login" component={Login}/>
-            <Stack.Screen name="Signup" component={Signup}/>
-            <Stack.Screen name="ButtonPannel" component={ButtonPannel}/>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Signup" component={Signup} />
+            <Stack.Screen name="ButtonPannel" component={ButtonPannel} />
           </Stack.Navigator>
         </NavigationContainer>
-      </ScrollView>
     </PaperProvider>
   );
 }
