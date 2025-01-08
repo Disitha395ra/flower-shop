@@ -35,7 +35,10 @@ const handleminus = (id) => {
 }
 
 const handleaddtocart =(id)=>{
-
+   if (counts[id] > 0) {
+     navigation.navigate("Cart", { id, count: counts[id] });
+   }
+  
 }
 
 
