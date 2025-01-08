@@ -4,7 +4,6 @@ import {
   Text,
   Button,
   TextInput,
-  Avatar,
   Card,
   IconButton,
   MD3Colors,
@@ -44,19 +43,25 @@ export default function Item({ navigation }) {
   };
 
   const navigateToCart = () => {
-    navigation.navigate("Cart", { cart });
+    const fullCart = flowers.reduce((acc, flower) => {
+      if (counts[flower.id] > 0) {
+        acc[flower.id] = counts[flower.id];
+      }
+      return acc;
+    }, {});
+    navigation.navigate("Cart", { cart: fullCart });
   };
 
   return (
     <PaperProvider>
       <ScrollView>
         {flowers.map((flower) => (
-          <Card key={flower.id} style={styles.cardcomponent}>
+          <Card key={flower.id} style={styles.cardComponent}>
             <Card.Content>
-              <Text variant="titleLarge">Name - {flower.name}</Text>
-              <Text variant="bodyMedium">Price - {flower.price}</Text>
+              <Text variant="titleLarge">Name: {flower.name}</Text>
+              <Text variant="bodyMedium">Price: {flower.price}</Text>
             </Card.Content>
-            <Card.Cover source={flower.img} style={styles.cardphoto} />
+            <Card.Cover source={flower.img} style={styles.cardPhoto} />
             <Card.Actions>
               <IconButton
                 icon="plus"
@@ -68,7 +73,7 @@ export default function Item({ navigation }) {
                 label="Count"
                 value={counts[flower.id].toString()}
                 editable={false}
-                style={styles.textfield}
+                style={styles.textField}
               />
               <IconButton
                 icon="minus"
@@ -99,17 +104,15 @@ export default function Item({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  cardcomponent: {
+  cardComponent: {
     margin: 10,
     padding: 10,
   },
-  cardphoto: {
-    position: "relative",
-    height: 500,
+  cardPhoto: {
+    height: 200,
   },
-  textfield: {
+  textField: {
     width: 100,
-    alignContent: "center",
     textAlign: "center",
     borderRadius: 20,
   },

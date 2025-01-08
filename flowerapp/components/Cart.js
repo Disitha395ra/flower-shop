@@ -1,26 +1,43 @@
 import { StyleSheet, ScrollView, View } from "react-native";
-import { PaperProvider, Text } from "react-native-paper";
+import { PaperProvider, Text, Card } from "react-native-paper";
 import { flowers } from "../data/FlowerDB";
+import React from "react";
 
 export default function Cart({ route }) {
-  const { cart = {} } = route.params || {}; // Get the cart object from params
+  const { cart = {} } = route.params || {}; // Receive the cart object
+  const cartItems = Object.entries(cart).map(([id, count]) => ({
+    id,
+    count,
+    ...flowers.find((flower) => flower.id === parseInt(id)), // Ensure ID is parsed correctly
+  }));
 
   return (
     <PaperProvider>
       <ScrollView contentContainerStyle={styles.container}>
-        {Object.entries(cart).map(([id, count]) => {
-          const flower = flowers.find((flower) => flower.id === id);
-          return (
-            <View key={id} style={styles.card}>
-              <Text variant="titleLarge" style={styles.text}>
-                Flower Name: {flower?.name || "Unknown"}
-              </Text>
-              <Text variant="bodyLarge" style={styles.text}>
-                Quantity: {count}
-              </Text>
-            </View>
-          );
-        })}
+        {cartItems.length > 0 ? (
+          cartItems.map((item) => (
+            <Card key={item.id} style={styles.card}>
+              <Card.Content>
+                <Text variant="titleLarge" style={styles.text}>
+                  Flower Name: {item.name}
+                </Text>
+                <Text variant="bodyLarge" style={styles.text}>
+                  Price: {item.price}
+                </Text>
+                <Text variant="bodyLarge" style={styles.text}>
+                  Quantity: {item.count}
+                </Text>
+                <Text variant="bodyLarge" style={styles.text}>
+                  Total: {item.price * item.count}
+                </Text>
+              </Card.Content>
+            </Card>
+          ))
+        ) : (
+          <Text variant="titleLarge" style={styles.emptyText}>
+            Your cart is empty.
+          </Text>
+        )}
       </ScrollView>
     </PaperProvider>
   );
@@ -28,19 +45,17 @@ export default function Cart({ route }) {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    padding: 20,
+    padding: 10,
   },
   card: {
-    padding: 15,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: "#ccc",
-    backgroundColor: "#f9f9f9",
+    margin: 10,
+    padding: 10,
   },
   text: {
-    marginVertical: 5,
+    marginBottom: 5,
+  },
+  emptyText: {
+    marginTop: 20,
     textAlign: "center",
   },
 });
