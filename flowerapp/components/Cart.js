@@ -1,6 +1,7 @@
 import { StyleSheet, ScrollView } from "react-native";
 import { PaperProvider, Text, Button, TextInput } from "react-native-paper";
-export default function Cart() {
+export default function Cart({route}) {
+  const {id, counts} = route.params;
   return (
     <PaperProvider>
       <ScrollView>
