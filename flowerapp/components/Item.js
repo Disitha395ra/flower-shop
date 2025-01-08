@@ -19,11 +19,19 @@ const [counts, setCounts] = React.useState(
   Object.fromEntries(flowers.map((flower) => [flower.id, 0]))
 );
 const handleplus = (id) => {
-    console.log(id)
+   setCounts((prevCounts) => {
+     const updatedCounts = { ...prevCounts };
+     updatedCounts[id] += 1; 
+     return updatedCounts; 
+   });
 }
 
 const handleminus = (id) => {
-    console.log(id);
+    setCounts((prevCounts) => {
+      const updatedCounts = { ...prevCounts };
+      updatedCounts[id] = Math.max(0, updatedCounts[id] - 1); 
+      return updatedCounts; 
+    });
 }
 
     return (
@@ -41,11 +49,11 @@ const handleminus = (id) => {
                   icon="plus"
                   iconColor={MD3Colors.error50}
                   size={20}
-                  onPress={()=>handleplus(flower.id)}
+                  onPress={() => handleplus(flower.id)}
                 />
                 <TextInput
                   label="Count"
-                  value={counts}
+                  value={counts[flower.id].toString()}
                   onChangeText={(text) => setCounts(text)}
                   editable={false}
                   style={styles.textfield}
@@ -54,7 +62,7 @@ const handleminus = (id) => {
                   icon="minus"
                   iconColor={MD3Colors.error50}
                   size={20}
-                  onPress={()=>handleminus(flower.id)}
+                  onPress={() => handleminus(flower.id)}
                 />
                 <Button
                   icon="cart-plus"
