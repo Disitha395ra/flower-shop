@@ -13,7 +13,7 @@ import {flowers} from '../data/FlowerDB'
 
 import React from "react";
 
-export default function Item(){
+export default function Item({route, navigation}){
 //const [count, setCount] = React.useState(0);
 const [counts, setCounts] = React.useState(
   Object.fromEntries(flowers.map((flower) => [flower.id, 0]))
@@ -33,6 +33,11 @@ const handleminus = (id) => {
       return updatedCounts; 
     });
 }
+
+const handleaddtocart =(id)=>{
+
+}
+
 
     return (
       <PaperProvider>
@@ -67,7 +72,7 @@ const handleminus = (id) => {
                 <Button
                   icon="cart-plus"
                   mode="contained"
-                  onPress={() => console.log("Pressed")}
+                  onPress={() => handleaddtocart(flower.id)}
                 >
                   Add to Cart
                 </Button>
